@@ -27,7 +27,3 @@ If everything is working you should see chat messages show up in the console, th
 
 IF YOU ENCOUNTER ANY BUGS, ERRORS OR NEED HELP WITH SOMETHING, PLEASE DO DM ME ON DISCORD AT Scorp#1348
 If you use this for your streams it'd be cool if you'd credit me somewhere... or not... thanks for using this either way.
-
-
-
-<insert hellishly long tos/eula section>
