@@ -13,13 +13,13 @@ Oh yeah, if it wasn't clear: no, you cannot send chat messages using this.
 
 (I expect you to have atleast some Python programming knowledge)
 
-Before running the script make sure you have Microsoft Edge installed (the browser this script uses) and that channel.txt has your channel username in it.
+Before running the script make sure you have Microsoft Edge installed (the browser this script uses) and that channel.txt has your channel username in it, also make sure you have the required packages (if not, run "pip install selenium", "pip install bs4" in your console).
 
 To make the script do things, open main.py with notepad++ and add any code that you want in the message_event function.
 
 Once done, save the file and run the main.py script.
 
-If you run the script and the browser shows up saying "Page not found" or something along those lines, it probably means they detected you as a bot, it always fixes it for me if I just close the script, wait a few minutes and then launch it again. If you're having issues for a solid while please do contact me on Discord (Scorp#1348)
+If you run the script and the browser shows up saying "Page not found" or something along those lines, it probably means they detected you as a bot, it always fixes it for me if I just close the script, wait a few minutes and then launch it again... well, it's either that or you entered a non existent username in "channel.txt". If you're having issues for a solid while please do contact me on Discord (Scorp#1348)
 
 If everything is working you should see chat messages show up in the console, then you can minimize the windows and run them in the background.
 
@@ -27,3 +27,7 @@ If everything is working you should see chat messages show up in the console, th
 
 IF YOU ENCOUNTER ANY BUGS, ERRORS OR NEED HELP WITH SOMETHING, PLEASE DO DM ME ON DISCORD AT Scorp#1348
 If you use this for your streams it'd be cool if you'd credit me somewhere... or not... thanks for using this either way.
+
+
+
+<insert hellishly long tos/eula section>
