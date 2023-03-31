@@ -9,8 +9,7 @@ url = "https://kick.com/"+channel
 browser = webdriver.Edge()
 browser.get(url)
 
-lastData = ""
-firstRun = True
+readenMessages = []
 
 while True:
     sample = browser.page_source
@@ -40,10 +39,10 @@ while True:
     for i,v in enumerate(msgs):
         messagesFormatted.append([usrs[i],msgs[i]])
 
-    if str(messagesFormatted) != lastData and not firstRun:
-        latestMessage = messagesFormatted[len(messagesFormatted)-1]
-        message_event(latestMessage)
-    firstRun = False
-    lastData = str(messagesFormatted)
+    for i,v in enumerate(messagesFormatted):
+        if i not in readenMessages:
+            newMsg = v
+            message_event(newMsg)
+            readenMessages.append(i)
 
     wait(0.1)
