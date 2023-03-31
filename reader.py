@@ -1,18 +1,24 @@
 from selenium import webdriver
 from time import sleep as wait
 from bs4 import BeautifulSoup as bs
+from os import system as sys
 
 channel = open("channel.txt",'r').read()
 
-url = "https://kick.com/"+channel
+url = "https://www.kick.com/"+channel
 
 browser = webdriver.Edge()
+
 browser.get(url)
 
 readenMessages = []
 
 while True:
     sample = browser.page_source
+    
+    if sample.find("Oops, Something went wrong") != -1:
+        sys("cls")
+        input("[KickStreaming Chat Reader] Looks like something went wrong when loading the page!\nAre you sure that "+url+" leads to your channel page?\nIf not please configure the channel.txt file to have your channel username in it.\nIf the channel name is correct try closing the script and running it again.\nIf you have consistant problems for a while please contact me on Discord at Scorp#1348\n\n")
 
     sample = bs(sample, "html.parser")
     container = sample.find("div",{"id":"messagesContainer"})
