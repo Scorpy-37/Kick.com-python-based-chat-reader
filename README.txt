@@ -92,3 +92,7 @@ If there's any confusion and you want to change something, hit me up on Discord 
 
 Wow, you really read the entire file. Nice.
 Have fun now I guess
+
+
+
+My channel: kick.com/37Scorpions

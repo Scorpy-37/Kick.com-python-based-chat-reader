@@ -8,11 +8,11 @@ channel = open("channel.txt",'r').read()
 url = "https://www.kick.com/"+channel
 
 browser = webdriver.Edge()
-
 browser.get(url)
 
 readenMessages = []
 
+ready_event(channel, url)
 while True:
     sample = browser.page_source
     
@@ -26,11 +26,13 @@ while True:
     
     messagesFormatted = []
     
-    msgSplit = messages.split('<div class="w-full pr-5 text-sm" data-v-5ccda75c="">')
+    msgSplit = messages.split('<div class="message"')
     del msgSplit[0]
     msgs = []
     usrs = []
+    ids = []
     for v in msgSplit:
+        ids.append(v.split('="" id="message-')[1].split('"')[0])
         currentMsgList = v.split('<span class="break-words" data-v-b948c69d=""><span class="align-middle" data-v-b948c69d="">')
         del currentMsgList[0]
         currentMsg = ""
@@ -38,17 +40,17 @@ while True:
             currentMsg += i.split("</span></span>")[0] + " "
         currentMsg = currentMsg[0:len(currentMsg)-1]
         msgs.append(currentMsg.replace("\xa0",""))
-        
+    
     for v in msgSplit:
         usrs.append(v.split('<span class="inline-flex items-center align-middle font-bold" data-v-b948c69d="" style="color: rgb(')[1].split(">")[1].split("<")[0])
     
     for i,v in enumerate(msgs):
-        messagesFormatted.append([usrs[i],msgs[i]])
+        messagesFormatted.append([usrs[i],msgs[i],ids[i]])
 
     for i,v in enumerate(messagesFormatted):
-        if i not in readenMessages:
+        if v[2] not in readenMessages:
             newMsg = v
             message_event(newMsg)
-            readenMessages.append(i)
+            readenMessages.append(v[2])
 
-    wait(0.1)
+    wait(0.05)

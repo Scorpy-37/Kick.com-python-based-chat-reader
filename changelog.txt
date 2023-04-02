@@ -1,0 +1,3 @@
+- fixed script not registering new messages once old messages start getting removed
+- added message ids as msg[2]
+- added "ready_event" function for when the browser starts running
