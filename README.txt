@@ -12,7 +12,9 @@ SETUP:
 3. Open script.py with notepad, notepad++, sublime text or whatever you want
 4. Edit the code to do what you want it to do
 5. Save it and run executor.py
-6. Done! You can now minimize the browser and the console and run it in the background.
+6. Done!
+
+Make sure to not minimize the browser and just keep it running in the background, minimizing it could cause it to become inactive and stop picking up on new messages.
 
 
 

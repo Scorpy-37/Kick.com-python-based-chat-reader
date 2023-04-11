@@ -1,8 +1,13 @@
 from selenium import webdriver
 from os import system as sys
 from time import sleep as wait
+from selenium.webdriver.chrome.options import Options
 
-browser = webdriver.Edge()
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--log-level=3")
+browser = webdriver.Chrome(options=chrome_options)
+
 browser.get("https://github.com/Scorpy-37/KickStreaming-chat-reader/blob/main/version")
 sample = browser.page_source
 browser.close()
@@ -18,4 +23,4 @@ if detectedVersion != latestVersion:
 else:
     print("[Updater] The script is up to date!")
 
-wait(5)
+input()
