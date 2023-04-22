@@ -31,7 +31,7 @@ NOTES:
 QNA:
 
 - How does it do it?
-It launches a browser (Edge), goes to your channel page on Kick.com and reads the page source to view the message container.
+It launches a browser (Chrome), goes to your channel page on Kick.com and reads the page source to view the message container.
 
 - Is this allowed?
 I... have no idea. Other Kick.com bots like BotRix Beta use a browser extension to view things like alerts and such, I don't think this is that far from that.
@@ -85,7 +85,7 @@ The script.py is where the user is meant to input their code, when executor.py i
 
 Now, reader.py, the main meat of this project/script:
 
-First off it gets the "channel.txt" file to get the users channel. It then appends "https://www.kick.com/" to the start of it to create the link to that users channel. It uses seleniums webdriver to open Edge and gets the source code of the url. Then it just runs an infinite loop that checks for new messages every 0.1 seconds. It does this by getting the page source, using bs4 to find the "messagesContainer" div in the source code (which contains the messages), splits that container into pieces to understand where are which messages (if you're wondering what the html jamble means, it's just stuff I found that usually occurs before and after messages in the HTML code and I use it to split the text), it compiles the found messages into a list and then checks if any messages haven't been read yet. If one hasn't, the script get's that message, sends it to the message_event function and appends the message to the readenMessages array.
+First off it gets the "channel.txt" file to get the users channel. It then appends "https://www.kick.com/" to the start of it to create the link to that users channel. It uses seleniums webdriver to open Chrome and gets the source code of the url. Then it just runs an infinite loop that checks for new messages every 0.1 seconds. It does this by getting the page source, using bs4 to find the "chatbox" div (the name/id may change in the future) in the source code (which contains the messages), splits that container into pieces to understand where are which messages (if you're wondering what the html jamble means, it's just stuff I found that usually occurs before and after messages in the HTML code and I use it to split the text), it compiles the found messages into a list and then checks if any messages haven't been read yet. If one hasn't, the script get's that message, sends it to the message_event function and appends the message to the readenMessages array.
 
 Aaand that's all I think. Please don't judge my choice of names for the variables, I'm really bad at naming variables in my code.
 If there's any confusion and you want to change something, hit me up on Discord at Scorp#1348 and I'll be glad to help!
