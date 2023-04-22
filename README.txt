@@ -24,6 +24,7 @@ NOTES:
 - You don't need to be streaming for this script to work
 - Make sure to pause the stream in the browser window if you're streaming to not slow down your pc and wifi
 - If the browser comes up saying "Oops, Something went wrong", check the console for help
+- IMPORTANT!!! If the browser comes up without the emoji picker above the chat message input box, the browser won't pick up on messages. I have no idea why it is like that, but the browser randomly decides to make the chat not work. Probably Kicks way to prevent people from using the website on a browser handled by a script (most likely to prevent botting). Either way, if you encounter this, restart the script. Try restarting it until the emoji picker and chat messages start working, everything should be working fine then.
 
 
 
@@ -45,7 +46,7 @@ Kind of, since I stream myself I will probably realize when and if the script br
 No.
 
 - Does this come with premade functions?
-No. You can code your own however.
+No... Well, a few, you can find them in the Extras folder, but you should code your own.
 
 - Do I need to credit you?
 No. It would be nice though if you did!
@@ -56,6 +57,7 @@ IDEAS:
 
 - Chat message TTS
 Read chat messages using the pyttsx3 text to speech package. (https://pypi.org/project/pyttsx3/)
+Now available in Extras folder!!!
 
 - Chat sound effects
 Play sounds when chat uses certain commands, for example !fart
@@ -98,3 +100,4 @@ Have fun now I guess
 
 
 My channel: kick.com/37Scorpions
+(I count saying thanks as credit too)

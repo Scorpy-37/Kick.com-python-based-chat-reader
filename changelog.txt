@@ -1,2 +1,3 @@
-- made update.py hide the browser window
-- slight change to README.txt file
+- added extras folder
+- updated code to current kick browser code (v1.3 is now broken)
+- made the script use chrome
