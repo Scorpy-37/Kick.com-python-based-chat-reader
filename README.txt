@@ -3,6 +3,7 @@ Hello! Thank you for using my script for reading Kick.com chat messages uwu
 Need help with anything? Contact me on Discord at Scorp#1348!
 Just please DM me saying what you want, don't just go "hi" and wait for my response.
 
+If you don't like reading, just quickly skim over this file and read anything that catches your eye. This is purely information I found necessary to mention before throwing you into this mess of a script.
 
 
 SETUP:
