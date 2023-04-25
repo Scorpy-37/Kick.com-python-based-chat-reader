@@ -7,12 +7,12 @@ Just please DM me saying what you want, don't just go "hi" and wait for my respo
 
 SETUP:
 
-1. Run "install.py" to install required packages
-2. Open the channel.txt file and enter your channels username
-3. Open script.py with notepad, notepad++, sublime text or whatever you want
-4. Edit the code to do what you want it to do
-5. Save it and run executor.py
-6. Done!
+1: Run "install.py" to install required packages
+2: Open the channel.txt file and enter your channels username
+3: Open script.py with notepad, notepad++, sublime text or whatever you want
+4: Edit the code to do what you want it to do
+5: Save it and run executor.py
+6: Done!
 
 Make sure to not minimize the browser and just keep it running in the background, minimizing it could cause it to become inactive and stop picking up on new messages.
 
@@ -21,9 +21,12 @@ Make sure to not minimize the browser and just keep it running in the background
 NOTES:
 
 - Make sure to run update.py every once in a while to check for new updates to the script
-- You don't need to be streaming for this script to work
+- You don't need to be streaming for this script to work.
 - Make sure to pause the stream in the browser window if you're streaming to not slow down your pc and wifi
 - If the browser comes up saying "Oops, Something went wrong", check the console for help
+- If the script seems to crash, sends errors or doesn't receive messages whenever someone sends a message in chat, make sure to open the chat box in the browser when it launches. It should start working without you opening the chat after a few times of clicking the button manually. If you do not see the Chat button, make the browser window bigger.
+- Turn off warnings by typing "True" into the "skip_warnings.txt" file
+
 - IMPORTANT!!! If the browser comes up without the emoji picker above the chat message input box, the browser won't pick up on messages. I have no idea why it is like that, but the browser randomly decides to make the chat not work. Probably Kicks way to prevent people from using the website on a browser handled by a script (most likely to prevent botting). Either way, if you encounter this, restart the script. Try restarting it until the emoji picker and chat messages start working, everything should be working fine then.
 
 
@@ -47,6 +50,12 @@ No.
 
 - Does this come with premade functions?
 No... Well, a few, you can find them in the Extras folder, but you should code your own.
+
+- How do I turn off the warnings?
+If you didn't read the notes part, you can turn it off by typing "True" into the "skip_warnings.txt" file.
+
+- Why does the script randomly not work?
+Kick for some reason doesn't like you visiting the site with a browser running on scripts, though with enough retries it should definetly let you on.
 
 - Do I need to credit you?
 No. It would be nice though if you did!
