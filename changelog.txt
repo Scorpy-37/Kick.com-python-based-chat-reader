@@ -1,3 +1,4 @@
-- added warning boxes to make problems more noticable
-- added an error_event function
-- added more info in readme file about script crashing when new messages appear in chat
+major stability improvements
+
+- changed browser package (selenium > undetected_chromedriver)
+- added user ids

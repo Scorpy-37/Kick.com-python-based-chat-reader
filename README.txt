@@ -1,9 +1,10 @@
-Hello! Thank you for using my script for reading Kick.com chat messages uwu
+Hello! Thank you for using my script for reading KickStreaming chat messages uwu
 
 Need help with anything? Contact me on Discord at Scorp#1348!
 Just please DM me saying what you want, don't just go "hi" and wait for my response.
 
-If you don't like reading, just quickly skim over this file and read anything that catches your eye. This is purely information I found necessary to mention before throwing you into this mess of a script.
+If you don't like reading, just quickly skim over this file and read anything that catches your eye. It is quite important to read this to understand how to use it.
+
 
 
 SETUP:
@@ -15,8 +16,6 @@ SETUP:
 5: Save it and run executor.py
 6: Done!
 
-Make sure to not minimize the browser and just keep it running in the background, minimizing it could cause it to become inactive and stop picking up on new messages.
-
 
 
 NOTES:
@@ -24,42 +23,33 @@ NOTES:
 - Make sure to run update.py every once in a while to check for new updates to the script
 - You don't need to be streaming for this script to work.
 - Make sure to pause the stream in the browser window if you're streaming to not slow down your pc and wifi
-- If the browser comes up saying "Oops, Something went wrong", check the console for help
-- If the script seems to crash, sends errors or doesn't receive messages whenever someone sends a message in chat, make sure to open the chat box in the browser when it launches. It should start working without you opening the chat after a few times of clicking the button manually. If you do not see the Chat button, make the browser window bigger.
-- Turn off warnings by typing "True" into the "skip_warnings.txt" file
-
-- IMPORTANT!!! If the browser comes up without the emoji picker above the chat message input box, the browser won't pick up on messages. I have no idea why it is like that, but the browser randomly decides to make the chat not work. Probably Kicks way to prevent people from using the website on a browser handled by a script (most likely to prevent botting). Either way, if you encounter this, restart the script. Try restarting it until the emoji picker and chat messages start working, everything should be working fine then.
+- If the browser comes up saying "Oops, Something went wrong", make sure you entered the right channel name
+- Since update v1.6 you don't need to keep the browser not minimized and the 404 error only comes up when you enter the wrong channel name
 
 
 
-QNA:
+Q&A:
 
-- How does it do it?
+- How does it work?
 It launches a browser (Chrome), goes to your channel page on Kick.com and reads the page source to view the message container.
 
 - Is this allowed?
-I... have no idea. Other Kick.com bots like BotRix Beta use a browser extension to view things like alerts and such, I don't think this is that far from that.
+I... have no idea. Other KickStreaming bots like BotRix Beta use a browser extension to view things like alerts and such, I don't think this is that far from that.
 
 - Why should I use this?
 Because it's probably one of the few public scripts for reading chat messages on Kick.com, considering they didn't make a public API for it themselves like Twitch did. Also this supports python, and who doesn't love python.
 
 - Is it reliable?
-Kind of, since I stream myself I will probably realize when and if the script breaks or becomes outdated. Make sure to check for updates in case you have any issues. It checks for common things coming before and after messages/usernames to cut them out of the page source code meaning if the websites style, html code or things like that change this script will most likely break.
+Since v1.6 the script is way more reliable never getting detected as a fake browser. In terms of being up to date to the website, as I stream myself I will notice if the script breaks due to a website structure update and I will try to push a fix as soon as possible. If you noticed the script doesn't work and you believe it's the scripts fault, you can always contact me on Discord.
 
 - Can I send chat messages with this?
 No.
 
 - Does this come with premade functions?
-No... Well, a few, you can find them in the Extras folder, but you should code your own.
-
-- How do I turn off the warnings?
-If you didn't read the notes part, you can turn it off by typing "True" into the "skip_warnings.txt" file.
-
-- Why does the script randomly not work?
-Kick for some reason doesn't like you visiting the site with a browser running on scripts, though with enough retries it should definetly let you on.
+Kind of, yes. You can find some free scripts in the extras folder.
 
 - Do I need to credit you?
-No. It would be nice though if you did!
+No... Unless you want to.
 
 
 
@@ -67,7 +57,7 @@ IDEAS:
 
 - Chat message TTS
 Read chat messages using the pyttsx3 text to speech package. (https://pypi.org/project/pyttsx3/)
-Now available in Extras folder!!!
+   Available in Extras folder!!!
 
 - Chat sound effects
 Play sounds when chat uses certain commands, for example !fart
@@ -89,25 +79,22 @@ MORE INFO:
 
 So you want to know how this script works in depth? Mayhaps you want to edit the scripts to work how you want it? Sure! Here's me explaining how it works.
 
-install.py is a short script which runs "pip install" commands on the two required packages for this script: selenium and bs4 (beautiful soup).
+install.py is a short script which runs "pip install" commands on the two required packages for this script: undetected_chromedriver and bs4 (beautiful soup).
 update.py is another short script which opens a browser, goes to the github repository for this script, reads the version file and sees if the users version is the same as the one found in the browser. It knows the current version by checking the hidden "version" file in this folder.
 The script.py is where the user is meant to input their code, when executor.py is ran it will read the code in script.py and reader.py and run them.
 
 Now, reader.py, the main meat of this project/script:
+First off it gets the "channel.txt" file to get the users channel. It then appends "https://www.kick.com/" to the start of it to create the link to that users channel. It uses undetected_chromedriver's webdriver to open Chrome and gets the source code of the url. Then it just runs an infinite loop that checks for new messages every set amount of seconds. It does this by getting the page source, using bs4 to find the chat div in the source code (which contains the messages), splits that container into pieces to understand where are which messages (if you're wondering what the html jamble means, it's just stuff I found that usually occurs before and after messages in the HTML code and I use it to split the text), it compiles the found messages into a list and then checks if any messages haven't been read yet. If one hasn't, the script get's that message, sends it to the message_event function and appends the message to the readenMessages array.
 
-First off it gets the "channel.txt" file to get the users channel. It then appends "https://www.kick.com/" to the start of it to create the link to that users channel. It uses seleniums webdriver to open Chrome and gets the source code of the url. Then it just runs an infinite loop that checks for new messages every 0.1 seconds. It does this by getting the page source, using bs4 to find the "chatbox" div (the name/id may change in the future) in the source code (which contains the messages), splits that container into pieces to understand where are which messages (if you're wondering what the html jamble means, it's just stuff I found that usually occurs before and after messages in the HTML code and I use it to split the text), it compiles the found messages into a list and then checks if any messages haven't been read yet. If one hasn't, the script get's that message, sends it to the message_event function and appends the message to the readenMessages array.
-
-Aaand that's all I think. Please don't judge my choice of names for the variables, I'm really bad at naming variables in my code.
-If there's any confusion and you want to change something, hit me up on Discord at Scorp#1348 and I'll be glad to help!
+Aaand that's all I think. Please don't judge my choice of names for the variables, I'm really bad at naming variables in my code. DM me on Discord if you need any help with understanding the code!
 
 
+
+My channel: kick.com/37Scorpions
+Thanks to DKnightX91 for showing me undetected_chromedriver!
+Want to support me? Just a thanks is enough <3
 
 
 
 Wow, you really read the entire file. Nice.
 Have fun now I guess
-
-
-
-My channel: kick.com/37Scorpions
-(I count saying thanks as credit too)

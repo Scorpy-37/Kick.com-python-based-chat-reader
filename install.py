@@ -1,6 +1,6 @@
 from os import system
 
-system("pip install selenium")
+system("pip install undetected-chromedriver")
 system("pip install bs4")
 system("pip install tkinter")
 

@@ -1,12 +1,13 @@
-from selenium import webdriver
+import undetected_chromedriver as webdriver
 from os import system as sys
 from time import sleep as wait
 from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--log-level=3")
-browser = webdriver.Chrome(options=chrome_options)
+print("Checking...")
+
+opts = webdriver.ChromeOptions()
+opts.add_argument("--headless")
+browser = webdriver.Chrome(options=opts,use_subprocess=True)
 
 browser.get("https://github.com/Scorpy-37/KickStreaming-chat-reader/blob/main/version")
 sample = browser.page_source
