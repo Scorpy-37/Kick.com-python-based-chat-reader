@@ -43,10 +43,16 @@ Because it's probably one of the few public scripts for reading chat messages on
 Since v1.6 the script is way more reliable never getting detected as a fake browser. In terms of being up to date to the website, as I stream myself I will notice if the script breaks due to a website structure update and I will try to push a fix as soon as possible. If you noticed the script doesn't work and you believe it's the scripts fault, you can always contact me on Discord.
 
 - Can I send chat messages with this?
-No.
+Yes, but no. You can do it, but be aware it only works if the browser is focused. Great if you have another laptop or, say, a Raspberry Pi to run the script on, but as soon as you click off or minize the browser it will cause the script to crash. With that warning out of the way, you can send messages in chat by first logging in via login(username, password) and then by using send_message(content) to send the message.
+
+- Why does the browser need to be in focus when logging in/sending messages?
+The browser logs onto an account or sends messages by click elements in the browser. If the element is out of view or if the browser is not in focus it will not work. Feel free to implement your own method if you know a better one, you can also notify me about it and I'll be able to implement it in a future update.
 
 - Does this come with premade functions?
-Kind of, yes. You can find some free scripts in the extras folder.
+A few, yes. You can find some free scripts in the extras folder.
+
+- Why isn't the browser headless?
+Making the browser headless could make you not be able to pause the stream or mute it, since streams autoplay when entering an active page, and if the stream is 18+ the prompt will stop the script from viewing the page.
 
 - Do I need to credit you?
 No... Unless you want to.

@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+from undetected_chromedriver import Chrome, By
 from time import sleep as wait
 from bs4 import BeautifulSoup as bs
 from os import system as sys
@@ -8,11 +8,12 @@ channel = open("channel.txt",'r').read()
 
 url = "https://www.kick.com/"+channel
 
-browser = uc.Chrome(use_subprocess=True)
+browser = Chrome(use_subprocess=True)
 browser.get(url)
 
 readenMessages = []
 history = []
+loggedIn = False
 firstRun = True
 targetInterval = 0.05
 
@@ -21,7 +22,44 @@ def retrieve_past():
 def change_interval(target):
     targetInterval = target
 
-wait(5)
+def login(username = None, password = None):
+    if username == None or password == None:
+        print("Username or password not specified!\nUsage: login(username, password)")
+        return
+
+    global firstRun
+    global loggedIn
+
+    print("Logging in...")
+
+    elm = browser.find_element(By.XPATH, "/html/body/div/div[2]/div[1]/div/nav/div/div[3]/div[2]/button[1]")
+    elm.click()
+    wait(1)
+    elm = browser.find_element(By.XPATH, "/html/body/div[2]/div/div[1]/div[2]/form/div/div/form/div[2]/input")
+    elm.send_keys(username)
+    elm = browser.find_element(By.XPATH, "/html/body/div[2]/div/div[1]/div[2]/form/div/div/form/div[3]/div/input")
+    elm.send_keys(password)
+    wait(1)
+    elm = browser.find_element(By.XPATH, "/html/body/div[2]/div/div[1]/div[2]/form/div/div/form/button")
+    elm.click()
+    wait(1)
+    browser.get(url)
+    firstRun = True
+    wait(2.5)
+    loggedIn = True
+    print("Successfully logged in to "+username+"!")
+
+def send_message(content):
+    if not loggedIn:
+        print("Sending message without being logged in!\nPlease use login() before sending messages.")
+        return
+    elm = browser.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[3]/div[2]/div[1]/div/div[2]/div/div")
+    elm.send_keys(content)
+    wait(0.1)
+    elm = browser.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div[2]/div[2]/div/div/div[2]/div/div/div/div[3]/div[2]/div[2]/button")
+    elm.click()
+
+wait(2.5)
 
 ready_event(channel, url)
 while True:
