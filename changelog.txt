@@ -1,7 +1,2 @@
-v1.7
-- added login() and send_message() functions
-
-v1.6
-- major stability improvements
-- changed browser package (selenium > undetected_chromedriver)
-- added user ids
+v1.8
+- fixed history splitters breaking the script

@@ -74,14 +74,18 @@ while True:
 
     messagesFormatted = []
     
-    msgSplit = messages.split('</span></span></div></div></div><div class="break-all mt-0.5"')
+    msgSplit = messages.split('</div><div class="break-all mt-0.5"')
 
     del msgSplit[0]
+    for i in range(len(msgSplit) - 1):
+        if msgSplit[i].find('"history_breaker"') != -1:
+            del msgSplit[i]
 
     msgs = []
     usrs = []
     usrs_ids = []
     ids = []
+
     for v in msgSplit:
         ids.append(v.split('data-chat-entry="')[1].split('"')[0])
         currentMsgList = v.split('class="chat-entry-content"')
@@ -92,7 +96,7 @@ while True:
         currentMsg = currentMsg[0:len(currentMsg)-1]
         msgs.append(currentMsg)
 
-        usrs.append(v.split('data-chat-entry-user-id="')[1].split("</span>")[0].split(';">')[1])
+        usrs.append(v.split(');">')[1].split("</")[0])
         usrs_ids.append(v.split('data-chat-entry-user-id="')[1].split('"')[0])
     
     for i,v in enumerate(msgs):
