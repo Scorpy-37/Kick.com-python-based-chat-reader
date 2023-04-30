@@ -1,2 +1,5 @@
+v1.8.1
+- fixed install.py not installing ucd properly
+
 v1.8
 - fixed history splitters breaking the script
