@@ -1,7 +1,31 @@
 from os import system
 
-system("pip install undetected_chromedriver")
-system("pip install bs4")
-system("pip install tkinter")
+def find_closest_string(lst, target):
+    highest_similarity = 0
+    closest_string = ""
+    for string in lst:
+        similarity = 0
+        for char in str.lower(target):
+            if char in str.lower(string):
+                similarity += 1
+        if similarity > highest_similarity:
+            highest_similarity = similarity
+            closest_string = string
+    return closest_string
 
-input("Installation done! You can now run executor.py")
+print("What do you want to do?\n1: Install\n2: Repair\n3: Uninstall")
+choice = input("> ")
+closest = find_closest_string(["1: Install", "2: Repair", "3: Uninstall"], choice)
+if closest == "1: Install":
+	system("pip install undetected_chromedriver")
+	input("Successfully installed all required packages!")
+elif closest == "2: Repair":
+	system("pip uninstall undetected_chromedriver")
+	system("pip install undetected_chromedriver")
+	input("Successfully reinstalled all required packages!")
+elif closest == "3: Uninstall":
+	system("pip uninstall undetected_chromedriver")
+	system("pip uninstall bs4")
+	input("Successfully uninstalled all required packages!")
+else:
+	input("Unknown option, please try again")
