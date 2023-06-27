@@ -5,3 +5,6 @@ v1.9
 - made browser launch the chatroom page instead of the stream page
 - removed usage of bs4
 - added tick() function
+
+v1.9.1
+- made browser not headless so you can turn it off after the script is closed (most likely temporary until I find a way to close it automatically)

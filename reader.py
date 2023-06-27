@@ -3,16 +3,19 @@ import undetected_chromedriver as uc
 from time import sleep as wait
 from os import system as sys
 from tkinter import messagebox
+from concurrent.futures import ThreadPoolExecutor
+import atexit
+
+thread00 = ThreadPoolExecutor(max_workers=1)
 
 channel = open("channel.txt",'r').read()
-
 url = "https://www.kick.com/"+channel+"/chatroom"
 
 options = uc.ChromeOptions()
-options.add_argument('--headless')
+#options.add_argument('--headless')
 browser = Chrome(use_subprocess=True, options=options)
-browser.get(url)
 
+browser.get(url)
 sys('cls')
 
 readenMessages = []
@@ -30,8 +33,9 @@ wait(2.5)
 
 ready_event(channel, url)
 while True:
+    wait(targetInterval)
     sample = browser.page_source
-    
+
     if sample.find("Oops, Something went wrong") != -1:
         messagebox.showwarning("Warning", "The browser seems to have gotten a 404 error, make sure you entered your channel name into channel.txt correctly. It is case sensitive, make sure you enter just the username, not the full channel url.")
 
@@ -76,5 +80,4 @@ while True:
             readenMessages.append(v[2])
 
     firstRun = False
-    wait(targetInterval)
     tick()
