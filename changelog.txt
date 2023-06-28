@@ -8,3 +8,7 @@ v1.9
 
 v1.9.1
 - made browser not headless so you can turn it off after the script is closed (most likely temporary until I find a way to close it automatically)
+
+v1.9.2
+- made browser not headless permenantly due to safety methods being too complicated
+- changed readme file

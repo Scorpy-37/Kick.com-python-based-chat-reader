@@ -11,6 +11,7 @@ If you don't like reading, just quickly skim over this file and read anything th
 IMPORTANT NOTE TO FUTURE PEOPLE:
 
 So as I watch my script age I notice how in the future it will most likely become rather useless. Why may you ask? Well, you see, this script was made at the very start of Kick.com when no one had their hands on any APIs or API wrappers. This script opens a browser and reads the messages through it, but I see people venturing into the Kick.com API and making easier to use and generally more practical API wrappers which not only improve the chat reading but also add ways to send messages into chat. Even if you just want to use this script to read your chat I advise you find something else only using this script as a last resort. This script breaks very fast if the structure of Kick changes, meanwhile an API wrapper is going to be more maintained and stable. I just want to mention this because a few people have come to me asking why I did it the way I did it, and this is the answer.
+If you want a good API wrapper, I linked one at the bottom of this file.
 
 TLDR: Script is old (but still maintained), use other newer script for better experiance. 
 
@@ -29,8 +30,9 @@ SETUP:
 
 NOTES:
 
-- Make sure to run update.py every once in a while to check for new updates to the script
+- Make sure to run update.py every once in a while to check for new updates to the script.
 - You don't need to be streaming for this script to work.
+- Make sure you have Chrome installed, undetected-chromedriver may not function without it.
 - If the script doesn't work, give it a kiss and try again.
 - If the script still doesn't work, contact me on Discord.
 
@@ -60,10 +62,13 @@ Yes, one. It's a text to speech script that reads chat messages aloud. You can f
 No... Unless you want to.
 
 - I want to read and send messages using the API, what projects do that?
-A person came to me to ask a few questions about my script and they notified me they are making an API wrapper for reading and sending messages in your Kick chat. If you want to check it out go to https://github.com/phazejeff/kick.com-api-python, though note that as of writing this the script is not available and is WIP (work-in-progress).
+A person came to me to ask a few questions about my script and they notified me they are making an API wrapper for reading and sending messages in your Kick chat. I linked a working API wrapper at the end of this file.
 
 - Can I install this script as a package using PIP?
 No, I cannot be bothered to find a way to make this into a PIP package, you can only use this by downloading the project files and modifying the script.py file.
+
+- Is this a virus?
+No, but good that you're being cautious. For your own safety make sure to review this script (and any script you get in the future) to make sure it won't perform malicious actions on your device. Stay safe out there!
 
 
 
@@ -104,9 +109,13 @@ Aaand that's all I think. Please don't judge my choice of names for the variable
 
 
 
-My channel: https://www.twitch.tv/37scorpions
+END OF FILE:
+
 Thanks to DKnightX91 for showing me undetected_chromedriver!
 Want to support me? Just a thanks is enough <3
+My channel: https://www.twitch.tv/37scorpions
+
+If you're looking for an API wrapper capable of reading AND sending messages you can check out https://github.com/cibere/kick.py, haven't tried it myself but it looks like a good async API wrapper.
 
 
 
