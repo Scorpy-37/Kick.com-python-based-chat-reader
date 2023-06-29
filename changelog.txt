@@ -1,14 +1,3 @@
-v1.9
-- fixed new messages crashing script
-- removed login/message sending (redundant considering all the new api wrappers)
-- made browser headless
-- made browser launch the chatroom page instead of the stream page
-- removed usage of bs4
-- added tick() function
-
-v1.9.1
-- made browser not headless so you can turn it off after the script is closed (most likely temporary until I find a way to close it automatically)
-
-v1.9.2
-- made browser not headless permenantly due to safety methods being too complicated
-- changed readme file
+v1.10
+- made functions be processed in seperate threads
+- made message check interval 0 by default

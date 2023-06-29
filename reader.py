@@ -6,7 +6,7 @@ from tkinter import messagebox
 from concurrent.futures import ThreadPoolExecutor
 import atexit
 
-thread00 = ThreadPoolExecutor(max_workers=1)
+thread = ThreadPoolExecutor(max_workers=999999)
 
 channel = open("channel.txt",'r').read()
 url = "https://www.kick.com/"+channel+"/chatroom"
@@ -22,7 +22,7 @@ readenMessages = []
 history = []
 loggedIn = False
 firstRun = True
-targetInterval = 0.05
+targetInterval = 0
 
 def retrieve_past():
     return history
@@ -31,7 +31,7 @@ def change_interval(target):
 
 wait(2.5)
 
-ready_event(channel, url)
+thread.submit(ready_event, channel, url)
 while True:
     wait(targetInterval)
     sample = browser.page_source
@@ -74,10 +74,10 @@ while True:
         if v[2] not in readenMessages:
             newMsg = v
             if not firstRun:
-                message_event(newMsg)
+                thread.submit(message_event,newMsg)
             else:
                 history.append(newMsg)
             readenMessages.append(v[2])
 
     firstRun = False
-    tick()
+    thread.submit(tick)
