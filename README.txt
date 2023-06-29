@@ -41,7 +41,7 @@ NOTES:
 Q&A:
 
 - How does it work?
-It launches a browser (Chrome), goes to your channel chatroom page on Kick.com and reads the page source to fetch messages.
+It launches a browser (Chrome), goes to your channels chatroom page on Kick.com and reads the page source to fetch messages.
 
 - Is this allowed?
 I have no idea. Other Kick.com bots like Botrix use a browser extension to view things like alerts and such, I don't think this is that far from that.
@@ -62,7 +62,7 @@ Yes, one. It's a text to speech script that reads chat messages aloud. You can f
 No... Unless you want to.
 
 - I want to read and send messages using the API, what projects do that?
-A person came to me to ask a few questions about my script and they notified me they are making an API wrapper for reading and sending messages in your Kick chat. I linked a working API wrapper at the end of this file.
+I have linked a working async API wrapper for kick.com at the bottom of this file, check it out if you want.
 
 - Can I install this script as a package using PIP?
 No, I cannot be bothered to find a way to make this into a PIP package, you can only use this by downloading the project files and modifying the script.py file.
