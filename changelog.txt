@@ -1,2 +1,3 @@
 v1.11
 - made the reader wait until you finish the page captcha to prevent reading problems
+- fixed update.py

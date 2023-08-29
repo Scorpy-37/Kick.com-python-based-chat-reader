@@ -14,7 +14,7 @@ sample = browser.page_source
 browser.close()
 
 detectedVersion = str(open("version").read())
-latestVersion = sample.split('<td id="LC1" class="blob-code blob-code-inner js-file-line">')[1].split('</td>')[0]
+latestVersion = sample.split('ace: pre;">')[1].split('</textarea>')[0]
 
 sys("cls")
 statement = ""
