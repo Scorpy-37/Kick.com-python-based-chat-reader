@@ -31,6 +31,12 @@ def change_interval(target):
 
 wait(2.5)
 
+if browser.page_source.find("Checking if the site connection is secure"):
+    print("Waiting for captcha to be finished...")
+while browser.page_source.find("Checking if the site connection is secure") != -1:
+    wait(0.1)
+sys("cls")
+
 thread.submit(ready_event, channel, url)
 while True:
     wait(targetInterval)
