@@ -2,7 +2,8 @@ Hello! Thank you for using my script for reading Kick.com chat messages :3
 
 Need help with anything? Contact me on Discord at 37scorpions!
 Just please DM me saying what you want, don't just go "hi" and wait for my response.
-Brief warning before you contact me, I'm a furry.
+Also before you ask me to explain you anything please tell me your skill level: Have you used a computer? Have you used a command prompt? Have you used Python? This helps me determine how much I need to explain to you as I may just start explaining the history of python.
+Brief warning before you contact me though, I'm a furry and I like boys.
 
 If you don't like reading, just quickly skim over this file and read anything that catches your eye. It is quite important to read this to understand how to use it.
 
@@ -35,6 +36,7 @@ NOTES:
 - Make sure you have Chrome installed, undetected-chromedriver may not function without it.
 - If the script doesn't work, give it a kiss and try again.
 - If the script still doesn't work, contact me on Discord.
+- If you have package related issues (ones coming from packages instead of the scripts themselves) try installing these specific versions of the required packages: selenium 4.10.0, undetected_chromedriver 3.5.3
 
 
 

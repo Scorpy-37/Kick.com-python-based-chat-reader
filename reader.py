@@ -1,7 +1,7 @@
+from os import system as sys
 from undetected_chromedriver import Chrome, By
 import undetected_chromedriver as uc
 from time import sleep as wait
-from os import system as sys
 from tkinter import messagebox
 from concurrent.futures import ThreadPoolExecutor
 import atexit
@@ -70,8 +70,9 @@ while True:
         currentMsg = currentMsg[0:len(currentMsg)-1]
         msgs.append(currentMsg)
 
-        usrs.append(v.split(');">')[1].split("</")[0])
         usrs_ids.append(v.split('data-chat-entry-user-id="')[1].split('"')[0])
+        colorCode = v.split('id="'+usrs_ids[len(usrs_ids)-1]+'" style="')[1].split(');">')[0]
+        usrs.append(v.split(colorCode + ');">')[1].split("</span>")[0])
     
     for i,v in enumerate(msgs):
         messagesFormatted.append([usrs[i],msgs[i],ids[i],usrs_ids[i]])

@@ -1,3 +1,7 @@
 v1.11
 - made the reader wait until you finish the page captcha to prevent reading problems
 - fixed update.py
+
+v1.12
+- made install.py only get selenium 4.10.0
+- fixed script not picking up on bot usernames
