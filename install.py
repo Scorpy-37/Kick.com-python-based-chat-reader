@@ -19,6 +19,7 @@ closest = find_closest_string(["1: Install", "2: Repair", "3: Uninstall"], choic
 if closest == "1: Install":
 	system("pip install selenium==4.10.0")
 	system("pip install undetected_chromedriver")
+	system("pip install setuptools")
 	input("Successfully installed all required packages!")
 elif closest == "2: Repair":
 	system("pip uninstall undetected_chromedriver")

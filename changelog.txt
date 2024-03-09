@@ -5,3 +5,6 @@ v1.11
 v1.12
 - made install.py only get selenium 4.10.0
 - fixed script not picking up on bot usernames
+
+v1.13
+- made install.py install setuptools because undetected_chromedriver seems to require it
