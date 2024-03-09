@@ -9,13 +9,12 @@ opts = webdriver.ChromeOptions()
 opts.add_argument("--headless")
 browser = webdriver.Chrome(options=opts,use_subprocess=True)
 
-browser.get("https://github.com/Scorpy-37/KickStreaming-chat-reader/blob/main/version")
+browser.get("https://raw.githubusercontent.com/Scorpy-37/Kick.com-python-based-chat-reader/main/version")
 sample = browser.page_source
 browser.close()
 
 detectedVersion = str(open("version").read())
-latestVersion = sample.split('ace: pre;">')[1].split('</textarea>')[0]
-
+latestVersion = sample.split('pre-wrap;">')[1].split("</pre></body></html>")[0]
 sys("cls")
 statement = ""
 if detectedVersion != latestVersion:
